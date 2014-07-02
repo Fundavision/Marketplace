@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+             version="1.0">
+    
+    <!-- Tomcat + MySQL -->
+	<persistence-unit name="default">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<non-jta-data-source>java:comp/env/jdbc/FundavisionDS</non-jta-data-source>
+        <class>com.fundavision.marketplace.actor.model.Account</class>
+        <class>com.fundavision.marketplace.actor.model.Actor</class>
+        <class>com.fundavision.marketplace.actor.model.City</class>
+        <class>com.fundavision.marketplace.actor.model.CompanyRating</class>
+        <class>com.fundavision.marketplace.actor.model.CompanyRating</class>
+        <class>com.fundavision.marketplace.actor.model.Country</class>
+        <class>com.fundavision.marketplace.actor.model.Location</class>
+        <class>com.fundavision.marketplace.actor.model.Producer</class>
+        <class>com.fundavision.marketplace.actor.model.Province</class>
+        <class>com.fundavision.marketplace.actor.model.Role</class>
+        <class>com.fundavision.marketplace.actor.model.Shipper</class>
+        <class>com.fundavision.marketplace.actor.model.SystemUser</class> 
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+		</properties>
+	</persistence-unit>
+	         
+    <!-- Tomcat + Hypersonic 
+    <persistence-unit name="default">
+    	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+    	<non-jta-data-source>java:comp/env/jdbc/MarketplaceDS</non-jta-data-source>
+    	<class>org.openxava.session.GalleryImage</class>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+        </properties>
+    </persistence-unit> 
+    -->   
+        
+    <!-- JBoss + Hypersonic 
+    <persistence-unit name="default">
+    	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+    	<non-jta-data-source>java:/MarketplaceDS</non-jta-data-source>
+    	<class>org.openxava.session.GalleryImage</class>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+        </properties>
+    </persistence-unit>    
+    -->
+    
+    <!-- WebSphere + AS/400 
+    <persistence-unit name="default">
+    	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+    	<non-jta-data-source>jdbc/MarketplaceDS</non-jta-data-source>
+    	<class>org.openxava.session.GalleryImage</class>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DB2400Dialect"/>
+            <property name="hibernate.show_sql" value="false"/>
+        </properties>
+    </persistence-unit>
+    -->
+    
+    <!-- JUnit Hypersonic -->
+    <persistence-unit name="junit">
+    	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <properties>
+			<property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver"/>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+			<property name="hibernate.connection.url" value="jdbc:hsqldb:hsql://localhost:1666"/>
+        </properties>
+    </persistence-unit>    
+    
+    
+</persistence>
