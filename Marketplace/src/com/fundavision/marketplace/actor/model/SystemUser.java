@@ -1,5 +1,7 @@
 package com.fundavision.marketplace.actor.model;
 
+import java.util.*;
+
 import javax.persistence.*;
 
 import org.openxava.annotations.*;
@@ -34,6 +36,25 @@ public class SystemUser  {
 		return userID;
 	}
 	
+	@Hidden
+	@Column(columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP", updatable = false, nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date createDate;
+
+	@Hidden
+	@Column(columnDefinition = "TIMESTAMP default '2030-01-01 00:00:00'", nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date modifyDate;
+
+	@PrePersist
+	protected void onCreate() {
+		createDate = modifyDate = new Date();
+	}
+
+	@PreUpdate
+	protected void onUpdate() {
+		modifyDate = new Date();
+	}
 	public void setUserID(int userID) {
 		this.userID = userID;
 	}
@@ -68,6 +89,22 @@ public class SystemUser  {
 
 	public void setMiddleName(String middleName) {
 		this.middleName = middleName;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	public Date getModifyDate() {
+		return modifyDate;
+	}
+
+	public void setModifyDate(Date modifyDate) {
+		this.modifyDate = modifyDate;
 	}
 
 	
