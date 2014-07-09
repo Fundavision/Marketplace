@@ -4,20 +4,20 @@
 
 	<property name="project" value="Marketplace" />
 	<property name="ox3" value="true" />
-	<property file="../openxava.properties" />
+	<property file="C:/Programs/openxava-5.0/workspace/openxava.properties" />
 
 	<!-- 
 	Compile all .java and .groovy 
 	Not needed to call it if you work inside Eclipse
 	-->
 	<target name="compile">
-		<ant antfile="../OpenXava/build.xml" target="compile" />
+		<ant antfile="C:/Programs/openxava-5.0/workspace/OpenXava/build.xml" target="compile" />
 	</target>
 
 	<!-- Build and deploy the application in war format -->
 	<target name="deployWar">
 		<!-- In a directory -->
-		<ant antfile="../OpenXava/build.xml" target="deploy" />
+		<ant antfile="C:\Programs\openxava-5.0/workspace/OpenXava/build.xml" target="deploy" />
 		<!-- In a file (it does not work well on windows + tomcat)
 		<ant antfile="../OpenXava/build.xml" target="deployWar"/>
 		-->
@@ -27,7 +27,7 @@
 	Build the application in portlets format 
 	-->
 	<target name="generatePortlets">
-		<ant antfile="../OpenXava/build.xml" target="generatePortlets" />
+		<ant antfile="C:/Programs/openxava-5.0/workspace/OpenXava/build.xml" target="generatePortlets" />
 	</target>
 
 	<!--
@@ -35,7 +35,7 @@
 	It must be called just after update the OpenXava version.
 	-->
 	<target name="updateOX">
-		<ant antfile="../OpenXava/build.xml" target="updateOX" />
+		<ant antfile="C:/Programs/openxava-5.0/workspace/OpenXava/build.xml" target="updateOX" />
 	</target>
 
 	<!--
@@ -51,9 +51,9 @@
 	</target>
 	-->
 	<target name="updateSchema">
-		<ant antfile="../OpenXava/build.xml" target="updateSchemaJPA">
+		<ant antfile="C:/Programs/openxava-5.0/workspace/OpenXava/build.xml" target="updateSchemaJPA">
 			<property name="persistence.unit" value="junit" />
-			<property name="schema.path" value="../../tomcat/lib/mysql-connector-java-5.1.30.jar" />
+			<property name="schema.path" value="C:\Programs\openxava-5.0/tomcat/lib/mysql-connector-java-5.1.30.jar" />
 		</ant>
 	</target>
 
