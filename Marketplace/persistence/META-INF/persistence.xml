@@ -12,6 +12,7 @@
 		<non-jta-data-source>java:comp/env/jdbc/FundavisionDS</non-jta-data-source>
         <class>com.fundavision.marketplace.actor.model.Account</class>
         <class>com.fundavision.marketplace.actor.model.Actor</class>
+        <class>com.fundavision.marketplace.actor.model.Approver</class>
         <class>com.fundavision.marketplace.actor.model.City</class>
         <class>com.fundavision.marketplace.actor.model.CompanyRating</class>
         <class>com.fundavision.marketplace.actor.model.CompanyRating</class>
@@ -21,7 +22,9 @@
         <class>com.fundavision.marketplace.actor.model.Province</class>
         <class>com.fundavision.marketplace.actor.model.Role</class>
         <class>com.fundavision.marketplace.actor.model.Shipper</class>
-        <class>com.fundavision.marketplace.actor.model.SystemUser</class> 
+        <class>com.fundavision.marketplace.actor.model.SystemUser</class>
+        <class>com.fundavision.marketplace.actor.model.OwnerTask</class>
+        <class>com.fundavision.marketplace.market.model.Product</class>  
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
 			<property name="hibernate.show_sql" value="true" />
@@ -33,7 +36,7 @@
     <!-- Tomcat + Hypersonic 
     <persistence-unit name="default">
     	<provider>org.hibernate.ejb.HibernatePersistence</provider>
-    	<non-jta-data-source>java:comp/env/jdbc/MarketplaceDS</non-jta-data-source>
+    	<non-jta-data-source>java:comp/env/jdbc/MarketplaceTestDS</non-jta-data-source>
     	<class>org.openxava.session.GalleryImage</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
@@ -44,7 +47,7 @@
     <!-- JBoss + Hypersonic 
     <persistence-unit name="default">
     	<provider>org.hibernate.ejb.HibernatePersistence</provider>
-    	<non-jta-data-source>java:/MarketplaceDS</non-jta-data-source>
+    	<non-jta-data-source>java:/MarketplaceTestDS</non-jta-data-source>
     	<class>org.openxava.session.GalleryImage</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
@@ -55,7 +58,7 @@
     <!-- WebSphere + AS/400 
     <persistence-unit name="default">
     	<provider>org.hibernate.ejb.HibernatePersistence</provider>
-    	<non-jta-data-source>jdbc/MarketplaceDS</non-jta-data-source>
+    	<non-jta-data-source>jdbc/MarketplaceTestDS</non-jta-data-source>
     	<class>org.openxava.session.GalleryImage</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.DB2400Dialect"/>

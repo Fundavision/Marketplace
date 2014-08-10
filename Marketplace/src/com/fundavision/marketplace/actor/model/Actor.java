@@ -1,5 +1,4 @@
 package com.fundavision.marketplace.actor.model;
-
 import java.util.*;
 
 import javax.persistence.*;
@@ -7,7 +6,7 @@ import javax.persistence.*;
 import org.openxava.annotations.*;
 import org.openxava.calculators.*;
 
-@View(name = "SimpleActor", members = "user.firstName, user.lastName")
+//View(name = "SimpleActor", members = "company.businessEntityName")
 @Entity
 public class Actor {
 
@@ -16,13 +15,13 @@ public class Actor {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int actorID;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional=false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "companyID")
 	@ReferenceView("SimpleCompany")
 	@Required
 	private Company company;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional=false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "userID")
 	@ReferenceView("SimpleUser")
 	@Required
@@ -41,6 +40,9 @@ public class Actor {
 			@PropertyValue(name = "enumType", value = "com.fundavision.marketplace.actor.model.Actor$PrimaryUserType"),
 			@PropertyValue(name = "value", value = "DEFAULT") })
 	private PrimaryUserType primaryUserType;
+
+	@OneToMany(mappedBy = "actor", cascade = CascadeType.REMOVE)
+	private Collection<Role> roles;
 
 	public enum PrimaryUserType {
 		DEFAULT, PRIMARY, NORMAL
