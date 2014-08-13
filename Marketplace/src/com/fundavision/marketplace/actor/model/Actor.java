@@ -6,7 +6,7 @@ import javax.persistence.*;
 import org.openxava.annotations.*;
 import org.openxava.calculators.*;
 
-//View(name = "SimpleActor", members = "company.businessEntityName")
+@View(name = "SimpleActor")
 @Entity
 public class Actor {
 
@@ -82,6 +82,14 @@ public class Actor {
 
 	public void setUser(SystemUser user) {
 		this.user = user;
+	}
+
+	public Collection<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Collection<Role> roles) {
+		this.roles = roles;
 	}
 
 	public ApprovalManager.ApprovalRequestStatus getStatus() {
